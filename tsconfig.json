@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "declaration": true,
+    "outDir": "./build",
+    "strictNullChecks": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "src/@types"
+    ]
+  }
+}
