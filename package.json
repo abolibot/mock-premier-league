@@ -8,7 +8,8 @@
     "watch": "NODE_ENV=development webpack --watch",
     "format": "prettier --write \"src/**/*.ts\"",
     "build": "rm -rf ./dist && NODE_ENV=production webpack",
-    "test": "jest --watchAll --no-cache",
+    "test-watch": "jest --watchAll --no-cache",
+    "test": "jest",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
     "lint": "eslint \"src/**/*.ts\" --fix"

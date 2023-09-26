@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 let mongo: MongoMemoryServer;
 
 beforeAll(async () => {
-    // process.env.NODE_ENV = "test";
+    process.env.NODE_ENV = "test";
 
     mongo = await MongoMemoryServer.create();
     const mongoUri = mongo.getUri();
