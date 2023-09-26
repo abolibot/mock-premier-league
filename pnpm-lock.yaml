@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@boxpositron/vre':
-    specifier: ^1.0.0
-    version: 1.0.0
   cors:
     specifier: ^2.8.5
     version: 2.8.5
@@ -1028,10 +1025,6 @@ packages:
   /@bcoe/v8-coverage@0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
-
-  /@boxpositron/vre@1.0.0:
-    resolution: {integrity: sha512-UuPpJjm47iKWOTuLDfyoKRg4j8pVCwxH0Zbueu9Hg4scpLEajvf7urtuekv+DPsF1hL/m4dj9325k6M4szgh7g==}
-    dev: false
 
   /@commitlint/cli@17.3.0:
     resolution: {integrity: sha512-/H0md7TsKflKzVPz226VfXzVafJFO1f9+r2KcFvmBu08V0T56lZU1s8WL7/xlxqLMqBTVaBf7Ixtc4bskdEEZg==}
