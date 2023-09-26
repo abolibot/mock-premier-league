@@ -8,6 +8,7 @@ let mongo: MongoMemoryServer;
 
 beforeAll(async () => {
     process.env.NODE_ENV = "test";
+    process.env.PORT = "3000";
 
     mongo = await MongoMemoryServer.create();
     const mongoUri = mongo.getUri();
