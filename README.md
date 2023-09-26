@@ -1,5 +1,9 @@
 # Mock Premier League
 
+![CI]
+(https://github.com/abolibot/mock-premier-league/blob/dev/.github/workflows/dev-ci.yml/badge.svg)](https://github.com/abolibot/mock-premier-league/blob/dev/.github/workflows/dev-ci.yml)
+
+
 ## Getting Started
 
 ### Clone Repository
