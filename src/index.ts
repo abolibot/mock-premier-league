@@ -1,37 +1,24 @@
 import logger from "moment-logger";
-import createServer, { CreateServerOptions } from "@/app";
-import { Response, Request } from "express";
+import http from "http";
+import { Application, Express } from "express";
+import app from "@/app";
 
-import routes from "@/routes";
-import { port, isProduction, allowedDomains } from "@/config";
-import NotFoundError from "@/errors/not-found.error";
-import errorHandler from "@/middlewares/error-handler";
-import { jsonSuccessResponse } from "@/helpers/utils";
+import { port, isProduction } from "@/config";
 
-// Start Server
+const start = (app: Express, port: number): Promise<Application> =>
+    new Promise((resolve, reject) => {
+        const server = http.createServer(app);
+
+        server.once("listening", () => resolve(app));
+        server.on("error", reject);
+
+        server.listen(port);
+    });
+
 logger.log("Starting Server");
 
 logger.info(`Running in ${isProduction ? "production" : "development"} mode`);
 
-const options: CreateServerOptions = {
-    port,
-    production: isProduction,
-    whitelistedDomains: allowedDomains,
-};
-
-const app = await createServer(options);
+await start(app, port);
 
 logger.info(`Server started on port ${port}`);
-
-app.get("/", (_req: Request, res: Response) => {
-    const message = "Mock Premier League API.";
-    return jsonSuccessResponse(res, 200, message);
-});
-
-app.use(routes);
-
-app.all("*", async () => {
-    throw new NotFoundError("Requested route not found");
-});
-
-app.use(errorHandler);
