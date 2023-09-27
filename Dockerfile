@@ -43,8 +43,8 @@ USER app
 RUN pnpm pkg delete scripts.prepare
 RUN pnpm install --prod
 
-COPY --chown=app:app --from=builder /app/build .
-COPY --chown=app:app --from=builder /app/dist .
+COPY --chown=app:app --from=builder /app/build ./build
+COPY --chown=app:app --from=builder /app/dist ./dist
 
 EXPOSE 3000
 
