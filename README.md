@@ -1,6 +1,6 @@
 # Mock Premier League
 
-[![Build status](https://img.shields.io/github/actions/workflow/status/abolibot/mock-premier-league/dev-ci.yml?branch=main&label=CI&logo=github&style=flat-square)](https://github.com/abolibot/mock-premier-league/actions/workflows/dev-ci.yml)
+[![Build status](https://img.shields.io/github/actions/workflow/status/abolibot/mock-premier-league/dev-ci.yml?label=CI&logo=github&style=flat-square)](https://github.com/abolibot/mock-premier-league/actions/workflows/dev-ci.yml)
 
 
 ## Getting Started
