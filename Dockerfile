@@ -1,3 +1,29 @@
+# base
+FROM node:18-alpine3.18 AS base
+
+WORKDIR /app
+
+RUN npm install -g pnpm
+
+COPY package.json ./
+COPY pnpm-lock.yaml ./
+
+RUN pnpm pkg delete scripts.prepare
+    
+RUN pnpm install
+
+COPY . .
+
+# for build
+
+FROM base as builder
+
+WORKDIR /app
+
+RUN pnpm run build
+
+# for prod 
+
 FROM node:18-alpine3.18
 
 RUN adduser -s /bin/sh -D app
@@ -14,11 +40,11 @@ COPY --chown=app:app pnpm-lock.yaml ./
 
 USER app
 
-RUN pnpm install --omit=dev
+RUN pnpm pkg delete scripts.prepare
+RUN pnpm install --prod
 
-COPY --chown=app:app . .
-
-RUN pnpm run build
+COPY --chown=app:app --from=builder /app/build .
+COPY --chown=app:app --from=builder /app/dist .
 
 EXPOSE 3000
 
