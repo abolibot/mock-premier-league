@@ -1,7 +1,7 @@
-import { object, string } from "zod";
+import { object, string, strictObject } from "zod";
 
 export const userSignup = object({
-    body: object({
+    body: strictObject({
         first_name: string({
             required_error: "First name is required",
         }),
@@ -26,7 +26,7 @@ export const userSignup = object({
 });
 
 export const userSignin = object({
-    body: object({
+    body: strictObject({
         email: string({
             required_error: "Email address is required",
         }).email("Invalid email address"),

@@ -11,7 +11,7 @@ export interface UserAttributes {
 }
 
 // describes the properties that a User Model has
-export interface UserModel extends mongoose.Model<any> {
+export interface UserModel extends mongoose.Model<UserDoc> {
     build(attributes: UserAttributes): UserDoc;
     isPasswordCorrect(password: string): boolean;
 }

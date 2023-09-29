@@ -80,7 +80,6 @@
   },
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.3",
-    "bull": "^4.11.3",
     "connect-redis": "^7.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

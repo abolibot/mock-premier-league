@@ -14,6 +14,8 @@ export default (
         return res.status(err.statusCode).json(err.serializeErrors());
     }
 
+    console.log(err);
+
     return res.status(500).json({
         status: false,
         message: "Oops! Internal server error",

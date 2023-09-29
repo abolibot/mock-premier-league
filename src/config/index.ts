@@ -7,6 +7,7 @@ import { randomUUID } from "crypto";
 dotenv.config();
 
 export const isProduction: boolean = process.env.NODE_ENV === "production";
+export const isTest: boolean = process.env.NODE_ENV === "test";
 export const port: number = parseInt(process.env.PORT ?? "3000");
 
 export const allowedDomains: string[] =
@@ -42,3 +43,5 @@ export const rateLimitMaxRequest: number = parseInt(
 export const rateLimitWindowInMinutes: number = parseInt(
     process.env.RATE_LIMIT_WINDOW_IN_MINUTES!,
 );
+
+export const fixtureBaseUrl: string = process.env.FIXTURE_BASE_URL!;
