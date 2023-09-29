@@ -4,8 +4,9 @@ import { Application, Express } from "express";
 import app from "@/app";
 
 import { port, isProduction } from "@/config";
-import waitForRedis from "@/helpers/wait-for-redis";
+import createRedisClient, { waitForListener } from "@/helpers/wait-for-redis";
 import waitForMongoose from "@/helpers/wait-for-mongoose";
+import defaultAdminSeeder from "./database/seeders/default-admin.seeder";
 
 const start = (app: Express, port: number): Promise<Application> =>
     new Promise((resolve, reject) => {
@@ -29,9 +30,14 @@ logger.info("Connected to Database");
 
 logger.log("Waiting for Redis");
 
-await waitForRedis();
+const redisClient = createRedisClient();
+await waitForListener(redisClient, "connect");
 
 logger.info("Connected to Redis");
+
+await defaultAdminSeeder();
+
+logger.log("Seeded default admin user");
 
 await start(app, port);
 
