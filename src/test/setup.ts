@@ -1,7 +1,5 @@
 import { afterAll, beforeAll, beforeEach } from "@jest/globals";
 import { MongoMemoryServer } from "mongodb-memory-server";
-// import RedisMock from "ioredis-mock";
-// import Redis from "ioredis";
 import mongoose from "mongoose";
 import request from "supertest";
 import app from "@/app";
@@ -15,16 +13,12 @@ declare global {
 }
 
 let mongo: MongoMemoryServer;
-// let redis: Redis;
 
 beforeAll(async () => {
     process.env.NODE_ENV = "test";
 
     mongo = await MongoMemoryServer.create();
     const mongoUri = mongo.getUri();
-
-    // redis = new RedisMock();
-
     await mongoose.connect(mongoUri, {});
 });
 
