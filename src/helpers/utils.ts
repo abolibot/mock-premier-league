@@ -4,9 +4,7 @@ export const jsonSuccessResponse = (
     res: Response,
     statusCode: number,
     message?: string,
-    data?: {
-        [key: string]: string;
-    },
+    data?: any,
 ): Response => {
     return res.status(statusCode).json({
         status: true,

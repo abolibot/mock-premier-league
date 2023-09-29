@@ -6,6 +6,8 @@ import app from "@/app";
 import { port, isProduction } from "@/config";
 import waitForRedis from "@/helpers/wait-for-redis";
 import waitForMongoose from "@/helpers/wait-for-mongoose";
+// import createQueue from "@/helpers/create-queue";
+import defaultAdminSeeder from "./database/seeders/default-admin.seeder";
 
 const start = (app: Express, port: number): Promise<Application> =>
     new Promise((resolve, reject) => {
@@ -32,6 +34,13 @@ logger.log("Waiting for Redis");
 await waitForRedis();
 
 logger.info("Connected to Redis");
+
+await defaultAdminSeeder();
+
+logger.log("Seeded default admin user");
+
+// const defaultAdminSeedQueue = await createQueue("seed-default-admin");
+// defaultAdminSeedQueue.process(handleMessage);
 
 await start(app, port);
 
