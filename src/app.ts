@@ -4,12 +4,14 @@ import helmet from "helmet";
 import express, { Express } from "express";
 import "express-async-errors";
 import { Response, Request } from "express";
+import limiter from "./helpers/rate-limiter";
 
 import { isProduction, allowedDomains } from "./config";
 import { jsonSuccessResponse } from "./helpers/utils";
 import NotFoundError from "./errors/not-found.error";
 import routes from "./routes";
 import errorHandler from "./middlewares/error-handler";
+import { sessionHandler } from "./helpers/session";
 
 const app: Express = express();
 
@@ -33,8 +35,14 @@ app.use(helmet());
 app.use(cors(corsOptions));
 app.use(morgan(isProduction ? "combined" : "dev"));
 
+// rate limiting
+app.use(limiter);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Initialize sesssion storage.
+app.use(sessionHandler);
 
 app.get("/", (_req: Request, res: Response) => {
     const message = "Mock Premier League API.";

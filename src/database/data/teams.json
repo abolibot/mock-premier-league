@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Arsenal FC",
+        "short_name": "ARS"
+    },
+    {
+        "name": "Aston Villa ",
+        "short_name": "AVL"
+    },
+    {
+        "name": "Brentford",
+        "short_name": "BRE"
+    },
+    {
+        "name": "Bournemouth",
+        "short_name": "BOU"
+    },
+    {
+        "name": "Brighton & Hove Albion",
+        "short_name": "BRI"
+    },
+    {
+        "name": "Southampton",
+        "short_name": "SOU"
+    },
+    {
+        "name": "Chelsea FC",
+        "short_name": "CHE"
+    },
+    {
+        "name": "Crystal Palace",
+        "short_name": "CRY"
+    },
+    {
+        "name": "Fulham",
+        "short_name": "FUL"
+    },
+    {
+        "name": "Everton FC",
+        "short_name": "EVE"
+    },
+    {
+        "name": "Leeds United",
+        "short_name": "LEE"
+    },
+    {
+        "name": "Leicester City",
+        "short_name": "LEI"
+    },
+    {
+        "name": "Liverpool FC",
+        "short_name": "LIV"
+    },
+    {
+        "name": "Manchester City",
+        "short_name": "MCI"
+    },
+    {
+        "name": "Manchester United",
+        "short_name": "MUN"
+    },
+    {
+        "name": "Newcastle United",
+        "short_name": "NEW"
+    },
+    {
+        "name": "Tottenham Hotspur",
+        "short_name": "TOT"
+    },
+    {
+        "name": "West Ham United",
+        "short_name": "WHU"
+    },
+    {
+        "name": "Wolverhampton Wanderers",
+        "short_name": "WOL"
+    },
+    {
+        "name": "Nottingham Forest",
+        "short_name": "NFO"
+    }
+]

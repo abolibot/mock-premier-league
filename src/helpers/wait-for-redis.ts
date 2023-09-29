@@ -1,11 +1,18 @@
 import Redis from "ioredis";
-import { redisConfiguration } from "@/config";
+import RedisMock from "ioredis-mock";
+import { redisConfiguration, isTest } from "@/config";
+import logger from "moment-logger";
 
-const waitForListener = (target: Redis, event: string) =>
+export const waitForListener = (target: Redis, event: string) =>
     new Promise((resolve) => target.once(event, resolve));
 
-export default async function () {
+export default (): Redis => {
     const client = new Redis(redisConfiguration);
 
-    await waitForListener(client, "connect");
-}
+    client.on("error", (error: Error) => {
+        logger.error(`Redis error`, error);
+    });
+
+    return isTest ? new RedisMock() : client;
+    // return new RedisMock();
+};
