@@ -22,9 +22,6 @@ beforeAll(async () => {
 
     mongo = await MongoMemoryServer.create();
     const mongoUri = mongo.getUri();
-
-    // redis = new RedisMock();
-
     await mongoose.connect(mongoUri, {});
 });
 

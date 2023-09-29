@@ -7,8 +7,6 @@ import { port, isProduction } from "@/config";
 import createRedisClient, { waitForListener } from "@/helpers/wait-for-redis";
 import waitForMongoose from "@/helpers/wait-for-mongoose";
 import defaultAdminSeeder from "./database/seeders/default-admin.seeder";
-// import teamsSeeder from "./database/seeders/teams.seeder";
-import fixturesSeeder from "./database/seeders/fixtures.seeder";
 
 const start = (app: Express, port: number): Promise<Application> =>
     new Promise((resolve, reject) => {
@@ -40,10 +38,6 @@ logger.info("Connected to Redis");
 await defaultAdminSeeder();
 
 logger.log("Seeded default admin user");
-
-await fixturesSeeder();
-
-logger.log("Seeded fixtures");
 
 await start(app, port);
 
