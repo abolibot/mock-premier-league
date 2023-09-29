@@ -1,4 +1,5 @@
 import { isProduction } from "@/config";
+import { ZodIssue } from "zod/lib";
 
 export class CustomBaseError extends Error {
     protected _statusCode: number = 500;
@@ -10,7 +11,7 @@ export class CustomBaseError extends Error {
 
         this.message = message;
 
-        // Object.setPrototypeOf(this, CustomBaseError.prototype);
+        Object.setPrototypeOf(this, CustomBaseError.prototype);
     }
 
     serializeErrors(): SerializedError {
@@ -29,7 +30,7 @@ export class CustomBaseError extends Error {
 export interface SerializedError {
     status: boolean;
     error: string;
-    errors?: string;
+    errors?: ZodIssue[];
     stack?: string;
 }
 
