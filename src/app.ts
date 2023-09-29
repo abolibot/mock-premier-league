@@ -32,6 +32,10 @@ const corsOptions: CorsOptions = {
 };
 
 app.use(helmet());
+
+// for rate limiter
+app.set("trust proxy", 1);
+
 app.use(cors(corsOptions));
 app.use(morgan(isProduction ? "combined" : "dev"));
 
